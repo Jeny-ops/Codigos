@@ -52,3 +52,15 @@ foreign key (idSala) references sala(id),
 foreign key (idUsuario) references usuario(id),
 foreign key (idTag) references tag(id)
 );
+
+create table usuario_possui_tag (
+idUsuario int,
+idTag int unique,
+primary key(idUsuario),
+foreign key (idUsuario) references usuario(id),
+foreign key (idTag) references tag(id)
+);
+
+create table servidor_supervisao_externo(
+
+);
