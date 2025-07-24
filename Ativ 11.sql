@@ -28,7 +28,9 @@ foreign key (id) references usuario(id)
 create table externo (
 id int,
 cpf char(11),
-foreign key (id) references usuario(id)
+foreign key (id) references usuario(id),
+idServidor int not null,
+foreign key (idServidor) references servidor(id)
 );
 
 --Relacionamentos:
@@ -61,6 +63,3 @@ foreign key (idUsuario) references usuario(id),
 foreign key (idTag) references tag(id)
 );
 
-create table servidor_supervisao_externo(
-
-);
