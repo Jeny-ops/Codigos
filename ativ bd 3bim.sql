@@ -1,7 +1,8 @@
-create database 20231164010006_ativ_3bim;
+create database 20231164010006_ativ_3bim_BD;
 
-use 20231164010001_ativ_3bim;
+use 20231164010006_ativ_3bim_BD;
 -- Escrevendo o código SQL para construir o banco de dados relacional mostrado no diagrama.
+
 create table usuario (
 id int primary key not null auto_increment,
 cpf char(14) not null unique,
@@ -18,11 +19,11 @@ nome_curto varchar(30) unique not null
 create table permissao(
 expirar_acesso date,
 nome_usuario varchar(80),
-cpf_usuario char(11) not null,
+cpf_usuario char(14) not null,
 numero_sala int not null,
 primary key(cpf_usuario, numero_sala),
 
-  foreing key (nome_usuario) references usuario (nome) on delete restrict on update cascade,
+foreing key (nome_usuario) references usuario (nome) on delete restrict on update cascade,
 foreing key (cpf_usuario) references usuario (cpf) on delete restrict on update cascade,
 foreing key (numero_sala) references sala (numero)  on delete restrict on update cascade 
 
@@ -53,6 +54,20 @@ insert into permissao(cpf_usuario, numero_sala, expirar_acesso) values ('333.333
 -- Escreva uma consulta para mostrar o nome e o CPF de todos os usuários que têm permissão de acesso para a sala número 21.
 select nome_usuario, cpf_usuario from permissao where  numero_sala = 21;
 
---Escreva uma consulta para mostrar o número e o nome curto das salas que o usuário de CPF 111.111.111-11 tem permissão de acesso.
+-- Escreva uma consulta para mostrar o número e o nome curto das salas que o usuário de CPF 111.111.111-11 tem permissão de acesso.
 select sala.numero, sala.nome_curto from sala inner join permissao on sala.numero = permissao.numero_sala where permissao.usuario_cpf ='111.111.111-11' ;
 
+-- 6. tabela de relatório
+
+-- Escreva o código SQL para remover o usuário de CPF 999.999.999-99.
+delete from usuario where cpf= '999.999.999-99';
+
+-- Escreva o código SQL para remover todas as permissões do usuário de CPF 111.111.111-11.
+
+-- Escreva o código SQL para remover as permissões do usuário de CPF 222.222.222-22 para a sala de número 21.
+
+-- Escreva o código SQL para atualizar o nome do usuário de CPF 222.222.222-22 para Lucas Mariano.
+update usuario set nome = 'Lucas Mariano' where cpf='222.222.222-22';
+
+-- Escreva o código SQL para atualizar o nome completo e o nome curto da sala de número 21 para Laboratório de Redes de Computadores e LADIR, respectivamente.
+update sala set nome_completo = 'Laboratório de Redes de Computadores', nome_curto='LADIR' where numero=21;
