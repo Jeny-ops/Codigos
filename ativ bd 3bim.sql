@@ -27,14 +27,14 @@ foreing key (numero_sala) references sala (numero)  on delete restrict on update
 );
 
 -- Escrevendo o código SQL para inserir os dados abaixo para usuários e salas.
-insert into usuarios (nome, cpf) values ('Felipe', '111.111.111-11');
-insert into usuarios (nome, cpf) values ('Marcelo', '222.222.222-22');
-insert into usuarios (nome, cpf) values ('Mizael', '999.999.999-99');
-insert into usuarios (nome, cpf) values ('Leonardo', '333.333.333-33');
+insert into usuario (nome, cpf) values ('Felipe', '111.111.111-11');
+insert into usuario (nome, cpf) values ('Marcelo', '222.222.222-22');
+insert into usuario (nome, cpf) values ('Mizael', '999.999.999-99');
+insert into usuario (nome, cpf) values ('Leonardo', '333.333.333-33');
 
 insert into sala (numero, nome_completo, nome_curto) values (21, 'Laboraorio de manutencao e arquitetura de computadores', 'lamac');
-insert into usuarios (nome, cpf) values (46, 'Laboratorio de informatica 1', 'LabInfo1');
-insert into usuarios (nome, cpf) values (48, 'Laboratorio de informatica 2', 'LabInfo2');
+insert into sala (numero, nome_completo, nome_curto) values (46, 'Laboratorio de informatica 1', 'LabInfo1');
+insert into sala (numero, nome_completo, nome_curto) values (48, 'Laboratorio de informatica 2', 'LabInfo2');
 
 -- Os usuários com CPF 111.111.111-11 e 222.222.222-22 têm permissão para acessar as salas de números 21, 46 e 48. O acesso expira no dia 31/12/2020;
 insert into permissao(cpf_usuario, numero_sala, expirar_acesso) values ('111.111.111-11', 21, 2020/12/31);
@@ -52,3 +52,5 @@ insert into permissao(cpf_usuario, numero_sala, expirar_acesso) values ('333.333
 select nome, cpf_usuario from permissao where  numero_sala == 21;
 
 --Escreva uma consulta para mostrar o número e o nome curto das salas que o usuário de CPF 111.111.111-11 tem permissão de acesso.
+select sala.numero, sala.nome_curto from sala inner join permissao on sala.numero = permissao.numero_sala where permissao.usuario_cpf=='111.111.111-11' ;
+
