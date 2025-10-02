@@ -63,8 +63,10 @@ select sala.numero, sala.nome_curto from sala inner join permissao on sala.numer
 delete from usuario where cpf= '999.999.999-99';
 
 -- Escreva o código SQL para remover todas as permissões do usuário de CPF 111.111.111-11.
+delete from permissao where cpf_usuario= '111.111.111-11';
 
 -- Escreva o código SQL para remover as permissões do usuário de CPF 222.222.222-22 para a sala de número 21.
+
 
 -- Escreva o código SQL para atualizar o nome do usuário de CPF 222.222.222-22 para Lucas Mariano.
 update usuario set nome = 'Lucas Mariano' where cpf='222.222.222-22';
