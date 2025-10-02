@@ -66,7 +66,7 @@ delete from usuario where cpf= '999.999.999-99';
 delete from permissao where cpf_usuario= '111.111.111-11';
 
 -- Escreva o código SQL para remover as permissões do usuário de CPF 222.222.222-22 para a sala de número 21.
-
+delete permissao.cpf_usuario from permissao where permissao.cpf_usuario= '222.222.222-22' and permissao.numero=21;
 
 -- Escreva o código SQL para atualizar o nome do usuário de CPF 222.222.222-22 para Lucas Mariano.
 update usuario set nome = 'Lucas Mariano' where cpf='222.222.222-22';
