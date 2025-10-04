@@ -57,7 +57,11 @@ select nome_usuario, cpf_usuario from permissao where  numero_sala = 21;
 -- Escreva uma consulta para mostrar o número e o nome curto das salas que o usuário de CPF 111.111.111-11 tem permissão de acesso.
 select sala.numero, sala.nome_curto from sala inner join permissao on sala.numero = permissao.numero_sala where permissao.usuario_cpf ='111.111.111-11' ;
 
--- 6. tabela de relatório
+/* Escreva uma consulta que gera uma tabela de relatório indicando para cada usuário as salas que
+ele tem acesso. Apresente o resultado ordenado pelo nome do usuário em primeiro lugar e pelo
+número da sala em segundo lugar. As colunas da tabela serão nome, CPF, número, nome
+completo, nome curto e a data de expirar acesso. */
+select usuario.nome, usuario.cpf from usuario, sala.numero, sala.nome_completo, sala.nome_curto inner join permissao on numero=numero_sala;
 
 -- Escreva o código SQL para remover o usuário de CPF 999.999.999-99.
 delete from usuario where cpf= '999.999.999-99';
