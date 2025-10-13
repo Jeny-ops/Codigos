@@ -25,19 +25,18 @@ c. O terceiro elevado ao cubo.*/
     System.out.println("Agora digite um numero real");
     numReal=ler.nextDouble();
     
-    System.out.println(" O produto do dobro do primeiro com metade do segundo:");
-    a=(num1*2) * (num2/2);
-    System.out.println(a);
+    a= num1*2 * num2/2;
+    System.out.println("O produto do dobro do primeiro com metade do segundo: " + a);
     
-    System.out.println("A soma do triplo do primeiro com o terceiro:");
     b=(num1*3) + numReal;
-    System.out.println(b);
+    System.out.println("A soma do triplo do primeiro com o terceiro: " + b);
     
-    System.out.println(" O terceiro elevado ao cubo.");
+    
     c=numReal*numReal*numReal;
-    System.out.println(c);
+    System.out.println("O terceiro elevado ao cubo. " + c);
+    
+    
   
   }
 
 }
-
