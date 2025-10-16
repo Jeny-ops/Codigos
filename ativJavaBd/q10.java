@@ -23,7 +23,7 @@ public class q10{
    
     tempAproxDowload= tamArquivo/velLinkMBPS;
     
-    tempAproxDowloadEmMin= tempAproxDowload * 60;
+    tempAproxDowloadEmMin= tempAproxDowload / 60;
     
 
  
