@@ -19,10 +19,10 @@ public class q11{
   public static void main (String [] args){
     
     Scanner ler = new Scanner (System.in);
-    double salarioA;
-    double salarioD;
-    double aumento;
-    double percentAumento;
+    double salarioA=0;
+    double salarioD=0;
+    double aumento=0;
+    double percentAumento=0;
   
 
     System.out.println("Digite seu salario:");
@@ -56,11 +56,14 @@ public class q11{
       salarioD= salarioA + aumento;
     }
     
-    System.out.println("O salário antes do reajuste: " + salarioA);
+    System.out.println("O salário antes do reajuste:");
+    System.out.println(salarioA);
     
-    System.out.println("O percentual de aumento aplicado: " + percentAumento);
+    System.out.println("O percentual de aumento aplicado:");
+    System.out.println(percentAumento);
     
-    System.out.println("O valor do aumento: " + aumento);
+    System.out.println("O valor do aumento:");
+    System.out.println(aumento);
     
     System.out.println("O novo salário, após o aumento: " + salarioD);
   }
