@@ -9,7 +9,7 @@ pessoa responder positivamente a 2 questões ela deve ser classificada como “S
 4 como “Cúmplice” e 5 como “Assassino”. Caso contrário, será classificado como “Inocente”.*/
 
 import java.util.Scanner;
-public class q12{
+public class q13{
   public static void main (String [] args){
     
     String p1;
