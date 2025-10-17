@@ -17,7 +17,7 @@ public class q12{
     String p3;
     String p4;
     String p5;
-    String classificao;
+    String classificacao;
     int contp1=0;
     int contp2=0;
     int contp3=0;
@@ -25,7 +25,7 @@ public class q12{
     int contp5=0;
     int contadorDeSim=0;
     int perguntas=5;
-    int contagemTotal=0;
+
 
     Scanner ler= new Scanner(System.in);
 
@@ -60,11 +60,24 @@ public class q12{
     }
     
     
-   contadorDeSim = contp1 + contp2 + contp3 +    contp4 + contp5;
+   contadorDeSim = contp1 + contp2 + contp3 +  contp4 + contp5;
    
-contagemTotal= perguntas - contadorDeSim;
-
-
-
+   
+   if (contadorDeSim==2){
+       classificacao= "Suspeita";
+   }
+   
+   else if(contadorDeSim>=3 && contadorDeSim<=4){
+       classificacao= "Cumplice";
+   }
+   
+   else if (contadorDeSim==5){
+        classificacao= "Assassino";
+   }
+   
+   else{
+       classificacao= "inocente";
+   }
+    System.out.println(classificacao);
   }
 }
