@@ -18,50 +18,43 @@ public class q13{
     String p4;
     String p5;
     String classificacao;
-    int contp1=0;
-    int contp2=0;
-    int contp3=0;
-    int contp4=0;
-    int contp5=0;
     int contadorDeSim=0;
-    int perguntas=5;
-
+    
+    
 
     Scanner ler= new Scanner(System.in);
 
     System.out.println("Telefonou para a vítima?");
     p1=ler.nextLine();
-    if(p1=="sim"){
-    contp1=1;
+    if(p1.equalsIgnoreCase("sim")){
+    contadorDeSim+=1;
     }
     
     System.out.println("Esteve no local do crime?");
     p2=ler.nextLine();
-    if(p2=="sim"){
-    contp2=1;
+    if(p2.equalsIgnoreCase("sim")){
+    contadorDeSim+=1;
     }
     
     System.out.println("Mora perto da vítima?");
     p3=ler.nextLine();
-    if(p3=="sim"){
-    contp3=1;
+    if(p3.equalsIgnoreCase("sim")){
+    contadorDeSim+=1;
     }
 
     System.out.println("Devia para a vítima?");
     p4=ler.nextLine();
-    if(p4=="sim"){
-    contp4=1;
+    if(p4.equalsIgnoreCase("sim")){
+    contadorDeSim+=1;
     }
 
     System.out.println("Já trabalhou com a vítima?");
     p5=ler.nextLine();
-    if(p5=="sim"){
-    contp5=1;
+    if(p5.equalsIgnoreCase("sim")){
+    contadorDeSim+=1;
     }
     
-    
-   contadorDeSim = contp1 + contp2 + contp3 +  contp4 + contp5;
-   
+
    
    if (contadorDeSim==2){
        classificacao= "Suspeita";
@@ -78,6 +71,11 @@ public class q13{
    else{
        classificacao= "inocente";
    }
+   
+    
+
     System.out.println(classificacao);
+    
+    
   }
 }
