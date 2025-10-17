@@ -60,8 +60,9 @@ public class q12{
     }
     
     
-   contadorDeSim= contp1 + contp2 + contp3 + contp4 + contp5;
+   contadorDeSim = contp1 + contp2 + contp3 +    contp4 + contp5;
    
+contagemTotal= perguntas - contadorDeSim;
 
 
 
