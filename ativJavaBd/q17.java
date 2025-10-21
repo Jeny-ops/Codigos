@@ -36,68 +36,57 @@ public class q17{
            
        }
        
+       
        do {
         
-        System.out.println("Digite o codigo do produto:");
-        codProduto=ler.nextInt();
-        System.out.println("Agora digite a quantidade do produto:");
-        quantidade= ler.nextInt();
-        
-        switch(codProduto){
-            case 100:
-                preco1=1.20;
-                valorPedido=preco1*quantidade;
-                break;
+            System.out.println("Digite o codigo do produto:");
+            codProduto=ler.nextInt();
+            System.out.println("Agora digite a quantidade do produto:");
+            quantidade= ler.nextInt();
             
-            case 101:
-                preco2=1.30;
-                valorPedido=preco2*quantidade;
-                break;
+            switch(codProduto){
+                case 100:
+                    preco1=1.20;
+                    valorPedido=+ preco1*quantidade;
+                    break;
+                
+                case 101:
+                    preco2=1.30;
+                    valorPedido+=preco2*quantidade;
+                    break;
+               
+                case 102:
+                    preco3=1.50;
+                    valorPedido+=preco3*quantidade;
+                    break;
+                
+                case 103:
+                    preco4=1.20;
+                    valorPedido+=preco4*quantidade;
+                    break;
+                
+                case 104:
+                    preco5=1.30;
+                    valorPedido+=preco5*quantidade;
+                    break;
+                
+                case 105:
+                    preco6=1.00;
+                    valorPedido+=preco6*quantidade;
+                    break;
+                
+                case 0:
+                    codEncerrar=0;
+                    codProduto=codEncerrar;
+                
+                
+                
+            }
+        
            
-            case 102:
-                preco3=1.50;
-                valorPedido=preco3*quantidade;
-                break;
-            
-            case 103:
-                preco4=1.20;
-                valorPedido=preco4*quantidade;
-                break;
-            
-            case 104:
-                preco5=1.30;
-                valorPedido=preco5*quantidade;
-                break;
-            
-            case 105:
-                preco6=1.00;
-                valorPedido=preco6*quantidade;
-                break;
-            
-            case 0:
-                codEncerrar=0;
-                codProduto=codEncerrar;
-            
-            
-            
-        }
+       } while(codProduto!=0);
         
-    
-    
-        
-     
-        
-        
-        
-        
-        
-    
-  
-   } while(codProduto!=0);
-    
-     System.out.println(valorPedido);   
-    
-  }
-
+        System.out.println("Valor total do pedido: " + valorPedido);        
+     } 
   
 }
