@@ -40,7 +40,7 @@ public class q18 {
             soma += n;
         }
         double media = soma / quantidade;
-        System.out.printf("d) Média das notas: %.2f\n", media);
+        System.out.printf("Média das notas: ", media);
 
         // Quantidade de valores acima da média
         int acimaMedia = 0;
