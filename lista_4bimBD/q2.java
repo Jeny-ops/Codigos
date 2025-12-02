@@ -18,7 +18,7 @@ public class consultarAluno {
              PreparedStatement stmt = conexao.prepareStatement(sql);
              ResultSet rs = stmt.executeQuery()) {
 
-            if (!rs.isBeforeFirst()) {  // verifica se há registros
+            if (!rs.isBeforeFirst()) {  
                 System.out.println("Nenhum aluno cadastrado!");
                 return;
             }
