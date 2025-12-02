@@ -20,7 +20,7 @@ public class consultarAluno {
 
             if (rs.isBeforeFirst()) {
                 while (rs.next()) {
-                    var numero = rs.getInt("numero");
+                    var id = rs.getInt("numero");
                     var nome = rs.getString("nome");
                     var curso = rs.getString("curso");
                     var nota1 = rs.getDouble("nota1");
@@ -41,7 +41,7 @@ public class consultarAluno {
                     }
 
 
-                    System.out.println("Aluno: " + numero " :" + nome);
+                    System.out.println("Aluno, " +  id + ": "nome);
                     System.out.println("curso: " + curso);
                     System.out.println("notas: " + nota1 ", " + nota2 + ", " + nota3 + ", " + nota4);
                     System.out.println("situação do aluno: " + situacao + "com média:" + media );
