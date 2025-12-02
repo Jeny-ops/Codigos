@@ -1,12 +1,3 @@
-/*2. Já que isto está tão divertido, vamos continuar trabalhando com base na questão anterior.
-Escreva um programa que consulte os alunos cadastrados como resultado da execução da
-questão anterior e liste todos os alunos, mostrando as seguintes informações para cada um
-deles:
-Aluno <número do aluno>: <nome do aluno>
-Curso: <curso do aluno>
-Notas: <nota1> <nota2> <nota3> <nota4>
-Situação: <situação do aluno> com média <média do aluno> */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
