@@ -25,10 +25,10 @@ public class resultadosGerais {
              ResultSet rs = stmt.executeQuery()) {
 
             while (rs.next()) {
-                double nota1 = rs.getDouble("nota1");
-                double nota2 = rs.getDouble("nota2");
-                double nota3 = rs.getDouble("nota3");
-                double nota4 = rs.getDouble("nota4");
+                var nota1 = rs.getDouble("nota1");
+                var nota2 = rs.getDouble("nota2");
+                var nota3 = rs.getDouble("nota3");
+                var nota4 = rs.getDouble("nota4");
 
                 double media = (nota1 + nota2 + nota3 + nota4) / 4.0;
                 somaMedia += media;
