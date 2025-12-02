@@ -25,7 +25,6 @@ public class bancoAluno {
 
                 System.out.print("Número: ");
                 int numero = ler.nextInt();
-                ler.nextInt(); 
 
                 System.out.print("Nome: ");
                 String nome = ler.nextLine();
