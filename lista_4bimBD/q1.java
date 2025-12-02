@@ -21,11 +21,11 @@ public class bancoAluno {
 
             while (true) {
 
-                System.out.println("\nDigite os dados do aluno");
+                System.out.println("Digite os dados do aluno");
 
                 System.out.print("Número: ");
                 int numero = ler.nextInt();
-                ler.nextLine(); // limpa buffer
+                ler.nextInt(); 
 
                 System.out.print("Nome: ");
                 String nome = ler.nextLine();
@@ -44,9 +44,9 @@ public class bancoAluno {
 
                 System.out.print("Nota 4: ");
                 double nota4 = ler.nextDouble();
-                ler.nextLine(); // limpa quebra de linha após nextDouble()
+                ler.nextLine(); 
 
-                // INSERÇÃO NO BANCO
+            
                 try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
 
                     stmt.setInt(1, numero);
@@ -64,7 +64,7 @@ public class bancoAluno {
                     System.out.println("Erro ao realizar inserção");
                 }
 
-                // PERGUNTA SE QUER CONTINUAR
+                
                 System.out.print("Deseja cadastrar outro aluno? (S/N): ");
                 String resposta = ler.nextLine();
 
@@ -73,7 +73,7 @@ public class bancoAluno {
                     break;
                 }
 
-            } // fim do while
+            } 
 
         } catch (SQLException e) {
             System.out.println("Erro ao conectar ao banco");
