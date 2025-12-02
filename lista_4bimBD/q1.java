@@ -1,78 +1,84 @@
-/*1. Faça um programa que seja capaz de armazenar dados de alunos em um banco de dados.
-Quando seu programa executar, o usuário será solicitado a digitar os dados de um aluno
-composto por: número (inteiro e único), nome (texto), curso (texto), nota1 (real), nota2
-(real), nota3 (real) e nota4 (real). Após ler os dados que o usuário digitou, seu programa
-deve: (i) inserir o aluno informado na tabela específica do banco de dados, (ii) informar ao
-usuário se o aluno foi cadastrado com sucesso ou não e (iii) perguntar ao usuário se ele
-deseja inserir outro aluno ou encerrar o programa. Caso o usuário escolha inserir outro aluno
-o procedimento começa novamente desde o início, caso ele escolha encerrar o programa
-seu programa deve terminar a execução. */
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.sql.ResultSet;
 import java.util.Scanner;
 
 public class bancoAluno {
 
     public static void main(String[] args) {
+
         String url = " ";
         String usuario = " ";
         String senha = " ";
-        Scanner ler= new Scanner(System.in);
 
-        int numero=0;
-        String nome= " ";
-        String curso=" ";
-        double nota1=0.0;
-        double nota2=0.0;
-        double nota3=0.0;
-        double nota4=0.0;
+        Scanner ler = new Scanner(System.in);
 
-        String sql = "INSERT INTO dadosAluno (numero, nome, curso, nota1, nota2, nota3, nota4) VALUES (?,?,?,?,?,?,?)";
-        
-        try(Connection conexao=DriverManager.getConnection(url, usuario, senha)){
-            System.out.println("Digite os dados do aluno");
+        String sql = "INSERT INTO dadosAluno (numero, nome, curso, nota1, nota2, nota3, nota4) "
+                   + "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-            System.out.println("Numero:");
-            numero=ler.nextInt();
-            
-            System.out.println("Nome:");
-            nome=ler.nextLine();
+        try (Connection conexao = DriverManager.getConnection(url, usuario, senha)) {
 
-            System.out.println("Nota1:");
-            nota1=ler.nextDouble();
+            while (true) {
 
-            System.out.println("Nota2:");
-            nota2=ler.nextDouble();
+                System.out.println("\nDigite os dados do aluno");
 
-            System.out.println("Nota3:");
-            nota3=ler.nextDouble();
+                System.out.print("Número: ");
+                int numero = ler.nextInt();
+                ler.nextLine(); // limpa buffer
 
-            System.out.println("Nota4:");
-            nota4=ler.nextDouble();
+                System.out.print("Nome: ");
+                String nome = ler.nextLine();
 
-            try(PreparedStatement stmt = conexao.PreparedStatement(sql)){
-                stmt.setInt(1,numero);
-                stmt.setString(2,nome);
-                stmt.setString(3,curso);
-                stmt.setDouble(4,nota1);
-                stmt.setDouble(5,nota2);
-                stmt.setDouble(6,nota3);
-                stmt.setDouble(7,nota4);
-                stmt.executeUpdate();
-                System.out.println("Inserção realizada com sucesso");
-            }
+                System.out.print("Curso: ");
+                String curso = ler.nextLine();
 
-        } catch(SQLException e){
-            System.out.println("Erro ao realizar inserção.")
+                System.out.print("Nota 1: ");
+                double nota1 = ler.nextDouble();
 
+                System.out.print("Nota 2: ");
+                double nota2 = ler.nextDouble();
+
+                System.out.print("Nota 3: ");
+                double nota3 = ler.nextDouble();
+
+                System.out.print("Nota 4: ");
+                double nota4 = ler.nextDouble();
+                ler.nextLine(); // limpa quebra de linha após nextDouble()
+
+                // INSERÇÃO NO BANCO
+                try (PreparedStatement stmt = conexao.prepareStatement(sql)) {
+
+                    stmt.setInt(1, numero);
+                    stmt.setString(2, nome);
+                    stmt.setString(3, curso);
+                    stmt.setDouble(4, nota1);
+                    stmt.setDouble(5, nota2);
+                    stmt.setDouble(6, nota3);
+                    stmt.setDouble(7, nota4);
+
+                    stmt.executeUpdate();
+                    System.out.println("Inserção realizada com sucesso!");
+
+                } catch (SQLException e) {
+                    System.out.println("Erro ao realizar inserção");
+                }
+
+                // PERGUNTA SE QUER CONTINUAR
+                System.out.print("Deseja cadastrar outro aluno? (S/N): ");
+                String resposta = ler.nextLine();
+
+                if (!resposta.equalsIgnoreCase("s")) {
+                    System.out.println("Encerrando.");
+                    break;
+                }
+
+            } // fim do while
+
+        } catch (SQLException e) {
+            System.out.println("Erro ao conectar ao banco");
         }
 
-
-
-
+        ler.close();
     }
 }
