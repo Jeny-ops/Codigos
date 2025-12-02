@@ -30,6 +30,8 @@ public class bancoAluno {
         double nota2=0.0;
         double nota3=0.0;
         double nota4=0.0;
+
+        String sql = "INSERT INTO dadosAluno (numero, nome, curso, nota1, nota2, nota3, nota4) VALUES (?,?,?,?,?,?,?)";
         
         try(Connection conexao=DriverManager.getConnection(url, usuario, senha)){
             System.out.println("Digite os dados do aluno");
@@ -61,7 +63,7 @@ public class bancoAluno {
                 stmt.setDouble(6,nota3);
                 stmt.setDouble(7,nota4);
                 stmt.executeUpdate();
-                System.out.println("Inserção realizada com sucesso.");
+                System.out.println("Inserção realizada com sucesso");
             }
 
         } catch(SQLException e){
