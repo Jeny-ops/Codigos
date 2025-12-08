@@ -12,6 +12,9 @@ let menorVenda = Infinity;
 let diasAcimaDaMeta = 0;
 let diasAbaixoDaMeta = 0;
 
+// Array para armazenar vendas diárias
+let vendasDiarias = [];
+
 console.log("========================================");
 console.log("   RELATÓRIO DE VENDAS DO MÊS   ");
 console.log("========================================\n");
@@ -23,6 +26,9 @@ for (let dia = 1; dia <= diasDoMes; dia++) {
   // Gerar venda aleatória entre R$ 500 e R$ 2000
   const vendaDia = (Math.random() * 1500 + 500).toFixed(2);
   const vendaNum = parseFloat(vendaDia);
+
+  // Guardar a venda no array
+  vendasDiarias.push(vendaNum);
 
   // Acumular total
   totalVendas += vendaNum;
@@ -54,8 +60,24 @@ for (let dia = 1; dia <= diasDoMes; dia++) {
 // ===== PARTE 2: ANÁLISE DE DESEMPENHO POR SEMANA =====
 console.log("\n--- ANÁLISE POR SEMANA ---\n");
 
-// Implemente análise semanal aqui
-// Divida os 30 dias em semanas e calcule total de cada
+let vendasSemanais = [];
+let somaSemana = 0;
+let contador = 0;
+let numeroSemana = 1;
+
+for (let i = 0; i < vendasDiarias.length; i++) {
+  somaSemana += vendasDiarias[i];
+  contador++;
+
+  if (contador === 7 || i === vendasDiarias.length - 1) {
+    vendasSemanais.push(somaSemana);
+    console.log(`Semana ${numeroSemana}: R$ ${somaSemana.toFixed(2)}`);
+
+    somaSemana = 0;
+    contador = 0;
+    numeroSemana++;
+  }
+}
 
 // ===== PARTE 3: ESTATÍSTICAS FINAIS =====
 console.log("\n========================================");
