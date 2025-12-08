@@ -57,40 +57,50 @@ console.log("\n--- ANÁLISE POR SEMANA ---\n");
 // Implemente análise semanal aqui
 // Divida os 30 dias em semanas e calcule total de cada
 
-let diaSem1;
-let diaSem2;
-let diaSem3;
-let diaSem4;
-let totalVendaSem1;
+// ===== PARTE 3: ESTATÍSTICAS FINAIS =====
+console.log("\n========================================");
+console.log("          ESTATÍSTICAS FINAIS           ");
+console.log("========================================\n");
 
+const mediaDiaria = totalVendas / diasDoMes;
+const porcentagemMeta = (totalVendas / metaMensal) * 100;
+const bateuMetaMensal = totalVendas >= metaMensal;
 
+console.log(`Total de vendas: R$ ${totalVendas.toFixed(2)}`);
+console.log(`Média diária: R$ ${mediaDiaria.toFixed(2)}`);
+console.log(`Meta mensal: R$ ${metaMensal.toFixed(2)}`);
+console.log(`Atingido: ${porcentagemMeta.toFixed(1)}%`);
+console.log(
+  `Status: ${bateuMetaMensal ? "✓ META BATIDA!" : "✗ Meta não atingida"}\n`
+);
 
+console.log(`Melhor dia: Dia ${melhorDia} (R$ ${maiorVenda.toFixed(2)})`);
+console.log(`Pior dia: Dia ${piorDia} (R$ ${menorVenda.toFixed(2)})`);
+console.log(`Dias acima da meta: ${diasAcimaDaMeta}`);
+console.log(`Dias abaixo da meta: ${diasAbaixoDaMeta}\n`);
 
-for(let i=1;i<30;i++){
-  
-  if(i<=7){
-    diaSem1=i
-    
-    for (let totalSem1 = 1; totalSem1 <= 7; totalSem1++) {
-        const vendaDia = (Math.random() * 1500 + 500).toFixed(2);
-        vendaNum = parseFloat(vendaDia);
-        totalVendaSem1= totalSem1 + vendaNum;
-    }
+// ===== PARTE 4: PROJEÇÃO =====
+console.log("--- PROJEÇÃO ---\n");
 
-    console.log(`Total vendas semana 1: ${totalVendaSem1}`)
+// Se mantiver a média atual, quanto vai vender no próximo mês?
+const projecaoProximoMes = mediaDiaria * 30;
+console.log(`Projeção próximo mês: R$ ${projecaoProximoMes.toFixed(2)}`);
 
+// Quantos dias precisaria vender na meta para atingir objetivo mensal?
+const diasNecessarios = Math.ceil(metaMensal / metaDiaria);
+console.log(`Dias na meta necessários: ${diasNecessarios} dias`);
+
+// ===== PARTE 5: BÔNUS - SIMULAÇÃO DE CRESCIMENTO =====
+console.log("\n--- SIMULAÇÃO DE CRESCIMENTO ---\n");
+
+// Se crescer 5% ao mês, qual será a venda em 12 meses?
+let vendaAtual = totalVendas;
+const taxaCrescimento = 1.05; // 5%
+
+console.log("Projeção de crescimento (5% ao mês):");
+for (let mes = 1; mes <= 12; mes++) {
+  vendaAtual *= taxaCrescimento;
+  console.log(`Mês ${mes}: R$ ${vendaAtual.toFixed(2)}`);
 }
 
-  else if (i>=8 && i<=14){
-    diaSem2=i;
-  }
-
-   else if (i>=15 && i<=21){
-    diaSem3=i;
-  }
-
-   else if (i>=22 && i<=30){
-    diaSem4=i;
-  }
-}
-
+console.log("\n========================================");
